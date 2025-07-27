@@ -36,6 +36,7 @@ export const fetchPhotos = async () => {
     photoStore.set(items);
     console.log("사진 로딩 완료.");
   } catch (error) {
+    
     console.error("사진 로딩 중 오류 발생: ", error);
   } finally {
     isFetching = false;

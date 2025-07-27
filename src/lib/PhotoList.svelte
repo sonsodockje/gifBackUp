@@ -88,25 +88,25 @@ const shortCopyLink = async (url: string): Promise<void> => {
 
 </script>
 
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-6">
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 mt-6">
     {#each filteredItems as item}
       <div 
     
       class="flex flex-col items-center p-2 border border-gray-200 rounded-lg shadow-md bg-white transition-all duration-300 ">
-        <div class="w-32 h-32 mb-3 overflow-hidden rounded-md bg-gray-100 flex items-center justify-center">
+        <div class="w-24 h-24 mb-2 overflow-hidden rounded-md bg-gray-100 flex items-center justify-center">
             <a href={item.url} target="_blank" rel="noopener noreferrer" class="block w-full h-full">
               <img src={item.url} alt="uploaded" class="object-cover w-full h-full shadow-light-500"
                  loading="lazy" />
             </a>
         </div>
       
-        <p class="text-sm font-semibold text-center truncate w-full mb-3 text-gray-700">{item.name}</p>
+        <p class="text-xs font-semibold text-center truncate w-full mb-2 text-gray-700">{item.name}</p>
         <div class="flex flex-col space-y-2 w-full">
-          <button on:click={() => copyLink(item.url)} class="py-1.5 px-3 text-xs bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors duration-200 hover:cursor-pointer">링크복사</button>
+          <button on:click={() => copyLink(item.url)} class="py-1 px-2 text-xs bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors duration-200 hover:cursor-pointer">링크복사</button>
           
           <!-- <button on:click={() => shortCopyLink(item.url)} class="py-1.5 px-3 text-xs bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors duration-200 hover:cursor-pointer">단축링크</button> -->
         
-            <button on:click={() => handleDelete(item.url)} class="py-1.5 px-3 text-xs bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors duration-200 hover:cursor-pointer">삭제</button>
+            <button on:click={() => handleDelete(item.url)} class="py-1 px-2 text-xs bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors duration-200 hover:cursor-pointer">삭제</button>
           
         </div>
       </div>

@@ -65,7 +65,7 @@
 <div class="p-6 bg-gray-50 rounded-lg shadow-inner mb-6">
   <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
     <input type="file" bind:files={file} bind:this={fileInput} class="flex-grow file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer" />
-    <input type="text" bind:value={fileName} placeholder="파일 이름 입력" class="flex-grow p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200" />
+    <input type="text" bind:value={fileName} placeholder="파일 이름 입력" class="flex-grow p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200 overflow-hidden whitespace-nowrap" />
     <button on:click={handleUpload} disabled={isLoading} class="w-full md:w-auto py-2 px-6 rounded-md text-white font-semibold transition-all duration-200 {
       isLoading ? 'bg-indigo-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 transform hover:scale-105'
     }">

@@ -58,16 +58,16 @@
   
 </script>
 
-<div class="p-6 bg-gray-50 rounded-lg shadow-inner">
-  <h2 class="text-xl font-bold text-gray-800 mb-4">쪽지함</h2>
+<div class="p-4 bg-gray-50 rounded-lg shadow-inner">
+  <h2 class="text-lg font-bold text-gray-800 mb-3">쪽지함</h2>
   {#if !isFirebaseReady}
     <p class="text-gray-600">데이터 로딩 중...</p>
   {:else if comments.length === 0}
     <p class="text-gray-600">아직 쪽지가 없습니다. 첫 쪽지를 남겨주세요!</p>
   {:else}
-    <div class="space-y-4">
+    <div class="space-y-3">
       {#each comments as comment (comment.id)}
-        <div class="p-4 bg-white rounded-lg shadow-sm border border-gray-200">
+        <div class="p-3 bg-white rounded-lg shadow-sm border border-gray-200">
           <p class="text-gray-700 mb-2">{comment.text}</p>
           <p class="text-sm text-gray-500 text-right">{formatTimestamp(comment.timestamp)}</p>
         </div>

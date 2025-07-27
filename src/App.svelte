@@ -7,8 +7,8 @@
   import CommentList from "./lib/CommentList.svelte";
 </script>
 
-<main class="max-w-4xl mx-auto p-6 mt-8 bg-white shadow-lg rounded-lg">
-  <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-6">^^</h1>
+<main class="max-w-3xl mx-auto p-4 mt-6 bg-white shadow-lg rounded-lg">
+  <h1 class="text-2xl font-extrabold text-center text-gray-800 mb-4">^^</h1>
   <Auth />
   <PhotoUpload />
   <Search />
