@@ -18,15 +18,12 @@
   onMount(() => {
     // Firebase Authentication 상태 변화를 감지하는 리스너 설정
     authUnsubscribe = onAuthStateChanged(auth, (user) => {
-      // user 객체가 null이든 아니든, 인증 서비스가 초기화되었음을 의미합니다.
-      // 이 시점에서 Firestore 인스턴스(db)가 유효하다고 가정하고 리스너를 설정합니다.
       if (!isFirebaseReady) { // 이 블록은 한 번만 실행되도록 합니다.
         console.log("Firebase Auth 상태 확인 완료. Firestore 리스너 설정 시도.");
         isFirebaseReady = true; // 준비 완료 플래그 설정
 
         // Firestore 쿼리 및 실시간 리스너 설정
         const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
-
         unsubscribeFirestore = onSnapshot(q, (querySnapshot) => {
           const fetchedComments: CommentItem[] = [];
           querySnapshot.forEach((doc) => {
