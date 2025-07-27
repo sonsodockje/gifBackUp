@@ -68,6 +68,12 @@ const shortCopyLink = async (url: string): Promise<void> => {
 };
 
   const handleDelete = async (url: string): Promise<void> => {
+
+    if (currentUserUid !== adminUid) {
+      alert("불가")
+      return
+    }
+    
     if (confirm("정말로 이 이미지를 삭제하시겠습니까?")) {
       const imageRef = ref(storage, url);
       await deleteObject(imageRef);
@@ -97,10 +103,10 @@ const shortCopyLink = async (url: string): Promise<void> => {
         <p class="text-sm font-semibold text-center truncate w-full mb-3 text-gray-700">{item.name}</p>
         <div class="flex flex-col space-y-2 w-full">
           <button on:click={() => copyLink(item.url)} class="py-1.5 px-3 text-xs bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors duration-200 hover:cursor-pointer">링크복사</button>
-          <button on:click={() => shortCopyLink(item.url)} class="py-1.5 px-3 text-xs bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors duration-200 hover:cursor-pointer">단축링크</button>
-          {#if currentUserUid === adminUid}
+          <!-- <button on:click={() => shortCopyLink(item.url)} class="py-1.5 px-3 text-xs bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors duration-200 hover:cursor-pointer">단축링크</button> -->
+        
             <button on:click={() => handleDelete(item.url)} class="py-1.5 px-3 text-xs bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors duration-200 hover:cursor-pointer">삭제</button>
-          {/if}
+          
         </div>
       </div>
     {/each}

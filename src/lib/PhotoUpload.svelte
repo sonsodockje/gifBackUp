@@ -17,36 +17,49 @@
   });
 
   const handleUpload = async () => {
-    if (!currentUserUid || currentUserUid !== adminUid) {
-      alert("관리자만 사진을 업로드할 수 있습니다.");
-      return;
-    }
 
-    if (file && fileName) {
-      isLoading = true;
-      try {
-        const storageRef = ref(storage, `images/${fileName}`);
-        await uploadBytes(storageRef, file[0]);
-        alert("업로드 완료!");
-        fetchPhotos(true); // 캐시를 무시하고 목록을 새로고침합니다.
-        // Clear inputs after successful upload
-        file = null;
-        fileName = '';
-        if (fileInput) {
-          fileInput.value = '';
-        }
-      } catch (error) {
-        // console.error("업로드 실패:", error);
-        alert("업로드 실패!");
-      } finally {
-        isLoading = false;
-      }
-    } else if (!file) {
-      alert("파일을 선택해주세요.");
-    } else if (!fileName) {
-      alert("파일 이름을 입력해주세요.");
+    
+      if (currentUserUid !== adminUid) {
+    alert("관리자만 가능.");
+    return;
+  }
+
+
+  // 파일과 파일 이름이 모두 선택/입력되었는지 먼저 확인합니다.
+  if (!file) {
+    alert("파일을 선택해주세요.");
+    return;
+  }
+  if (!fileName) {
+    alert("파일 이름을 입력해주세요.");
+    return;
+  }
+  isLoading = true;
+  try {
+    // Firebase Storage에 파일 업로드
+    const storageRef = ref(storage, `images/${fileName}`);
+    await uploadBytes(storageRef, file[0]); // file[0]은 FileList에서 첫 번째 파일
+
+    alert("업로드 완료!");
+    // 업로드 성공 후 사진 목록을 새로고침합니다.
+    // fetchPhotos 함수가 캐시를 무시하고 최신 목록을 가져오도록 구현되어 있다고 가정합니다.
+    fetchPhotos(true);
+
+    // 입력 필드를 초기화합니다.
+    file = null;
+    fileName = '';
+    if (fileInput) {
+      fileInput.value = '';
     }
-  };
+  } catch (error) {
+    console.error("업로드 실패:", error);
+    // Firebase Storage 보안 규칙에 의해 거부된 경우, 여기에 Permission Denied 오류가 나타날 수 있습니다.
+    alert("업로드 실패! (권한 문제 또는 네트워크 오류일 수 있습니다.)");
+  } finally {
+    // 로딩 상태를 비활성화합니다.
+    isLoading = false;
+  }
+};
 </script>
 
 <div class="p-6 bg-gray-50 rounded-lg shadow-inner mb-6">

@@ -7,14 +7,14 @@ export default defineConfig({
     svelte(),
     tailwindcss(),
   ],
-server: {
-    proxy: {
-      '/api': {
-        target: 'https://vivoldi.com',
-        changeOrigin: true,
+// server: {
+//     proxy: {
+//       '/api': {
+//         target: 'https://vivoldi.com',
+//         changeOrigin: true,
 
 
-      },
-    },
-  },
+//       },
+//     },
+//   },
 });

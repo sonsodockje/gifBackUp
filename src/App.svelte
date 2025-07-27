@@ -3,6 +3,8 @@
   import PhotoList from "./lib/PhotoList.svelte";
   import Auth from "./lib/Auth.svelte";
   import Search from "./lib/Search.svelte";
+  import CommentUpload from "./lib/CommentUpload.svelte";
+  import CommentList from "./lib/CommentList.svelte";
 </script>
 
 <main class="max-w-4xl mx-auto p-6 mt-8 bg-white shadow-lg rounded-lg">
@@ -11,4 +13,6 @@
   <PhotoUpload />
   <Search />
   <PhotoList />
+  <CommentUpload />
+  <CommentList />
 </main>
