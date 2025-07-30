@@ -79,7 +79,7 @@ let currentUserUid: string | null = null;
     {:else}
       <div class="space-y-3">
         {#each comments as comment (comment.id)}
-          <div class="p-3 bg-white rounded-lg shadow-sm border border-gray-200">
+          <div class="p-6 min-h-44 bg-white rounded-lg shadow-sm border border-gray-200 flex flex-col justify-between">
             <p class="text-gray-700 mb-2">{comment.text}</p>
             <p class="text-sm text-gray-500 text-right">{formatTimestamp(comment.timestamp)}</p>
           </div>
