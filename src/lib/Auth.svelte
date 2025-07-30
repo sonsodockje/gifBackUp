@@ -15,6 +15,8 @@
   });
 
   const handleAuth = async () => {
+
+    
     if (userLoggedIn) {
       await signOut(auth);
       console.log("로그아웃 성공");
@@ -51,17 +53,17 @@
   };
 </script>
 
-<div class="mb-6 p-4 bg-gray-100 rounded-lg shadow-sm flex items-center justify-between">
-  {#if userLoggedIn}
-    <p class="text-gray-800 font-medium">환영합니다, <span class="text-indigo-700">{currentUser?.displayName}</span>님!</p>
-  {/if}
-  <button on:click={handleAuth} class="py-2 px-5 rounded-md text-white font-semibold transition-all duration-200 {
-    userLoggedIn ? 'bg-red-500 hover:bg-red-600 cursor-pointer' : 'bg-indigo-600 hover:bg-indigo-700 cursor-pointer'
-  }">
+<div class="w-full">
+
+  <button on:click={handleAuth} class="p-2 mb-2 rounded-md text-white  text-sm transition-all duration-200 ">
     {#if userLoggedIn}
-      로그아웃
+      🎀
     {:else}
-      Google 로그인
+      🎀
     {/if}
+
+  </button>
+  <button on:click={handleAuth} class="p-2 mb-2 rounded-md text-white  text-sm transition-all duration-200 ">
+    💌
   </button>
 </div>

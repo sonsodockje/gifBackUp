@@ -18,10 +18,9 @@
         timestamp: Timestamp.now(),
       });
       commentText = ''; // Clear input
-      alert("댓글이 성공적으로 게시되었습니다!");
+      alert("^^!");
     } catch (error) {
       console.error("댓글 게시 중 오류 발생:", error);
-      alert("댓글 게시 중 오류가 발생했습니다.");
     } finally {
       isSubmitting = false;
     }
@@ -32,7 +31,7 @@
 
   <textarea
     bind:value={commentText}
-    placeholder="여기에 쪽지를 남겨주세요..."
+    placeholder=""
     rows="4"
     class="w-full p-3 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 mb-4"
   ></textarea>
@@ -45,7 +44,7 @@
     {#if isSubmitting}
       게시 중...
     {:else}
-      쪽지 게시
+    전송
     {/if}
   </button>
 </div>
