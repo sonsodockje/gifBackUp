@@ -13,6 +13,5 @@
   <PhotoUpload />
   <Search />
   <PhotoList />
-  <CommentUpload />
   <CommentList />
 </main>

@@ -1,13 +1,16 @@
 <script lang="ts">
   import { db } from "./firebase";
   import { collection, addDoc, Timestamp } from "firebase/firestore";
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
 
   let commentText: string = '';
   let isSubmitting: boolean = false;
 
   const handleSubmit = async () => {
     if (!commentText.trim()) {
-      alert("댓글을 입력해주세요.");
+      alert("내용을 입력해주세요.");
       return;
     }
 
@@ -19,6 +22,7 @@
       });
       commentText = ''; // Clear input
       alert("^^!");
+      dispatch("submitted");
     } catch (error) {
       console.error("댓글 게시 중 오류 발생:", error);
     } finally {
@@ -27,8 +31,8 @@
   };
 </script>
 
-<div class="mt-10 p-6 bg-gray-50 rounded-lg shadow-inner mb-6">
-
+<div class=" bg-gray-50 rounded-lg ">
+<p class="text-center mb-2">무물</p>
   <textarea
     bind:value={commentText}
     placeholder=""

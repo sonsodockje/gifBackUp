@@ -69,7 +69,7 @@ let currentUserUid: string | null = null;
   
 </script>
 
-<div class="p-4 bg-gray-50 rounded-lg shadow-inner">
+<div class="p-4 mt-4 bg-gray-50 rounded-lg shadow-inner">
   {#if currentUserUid == adminUid}
     <h2 class="text-lg font-bold text-gray-800 mb-3">쪽지함</h2>
     {#if !isFirebaseReady}
