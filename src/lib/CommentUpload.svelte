@@ -31,8 +31,8 @@
   };
 </script>
 
-<div class=" bg-gray-50 rounded-lg ">
-<p class="text-center mb-2">무물</p>
+<div>
+
   <textarea
     bind:value={commentText}
     placeholder=""

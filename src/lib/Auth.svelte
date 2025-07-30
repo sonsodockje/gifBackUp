@@ -80,7 +80,9 @@
         class="fixed inset-0 bg-black/50 z-50 flex justify-center items-center"
         on:click|self={closeCommentPopup}
     >
+
         <div class="bg-white p-4 rounded-lg shadow-xl">
+                <p class="text-center mb-2">무물</p>
             <CommentUpload on:submitted={handleCommentSubmitted} />
         </div>
     </div>
