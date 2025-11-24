@@ -10,7 +10,7 @@
 <main class="max-w-3xl mx-auto p-4 bg-white">
   <Auth />
 
-  <PhotoUpload />
+  <!-- <PhotoUpload /> -->
   <Search />
   <PhotoList />
   <!-- <CommentList /> -->

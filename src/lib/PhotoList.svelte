@@ -131,13 +131,14 @@
 
                 
             </div> -->
-            {#if currentUserUid == adminUid}
+
+            <!-- {#if currentUserUid !== adminUid}
                     <button
                         on:click={() => handleDelete(item.url)}
                         class="py-1 mt-1 px-2 w-full text-xs bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors duration-200 hover:cursor-pointer"
                         >삭제</button
                     >
-                {/if}
+                {/if} -->
         </div>
     {/each}
 </div>
