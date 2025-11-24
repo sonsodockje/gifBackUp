@@ -13,5 +13,5 @@
   <PhotoUpload />
   <Search />
   <PhotoList />
-  <CommentList />
+  <!-- <CommentList /> -->
 </main>

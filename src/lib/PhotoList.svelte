@@ -117,7 +117,7 @@
             </div>
 
           
-            <div class="flex flex-row justify-between align-middle  items-center w-full">
+            <!-- <div class="flex flex-row justify-between align-middle  items-center w-full">
                 <p
                 class="text-xs font-semibold w-full text-gray-700"
             >
@@ -129,9 +129,8 @@
                     >🔗</button
                 >
 
-                <!-- <button on:click={() => shortCopyLink(item.url)} class="py-1.5 px-3 text-xs bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors duration-200 hover:cursor-pointer">단축링크</button> -->
                 
-            </div>
+            </div> -->
             {#if currentUserUid == adminUid}
                     <button
                         on:click={() => handleDelete(item.url)}
